@@ -29,15 +29,24 @@ h1 {
     flex-wrap: wrap;
 }
 
-.cards div {
+div span {
     width: 160px;
     height: 240px;
     background-color: #a7e9af;
-    border: 1px solid #99cea8;
+    border: 3px solid #99cea8;
     border-radius: 5px;
+    display: none;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
+
+.unhidden {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-right: 34px;
-    margin-bottom: 34px;
+    margin-bottom: 34px; 
 }
