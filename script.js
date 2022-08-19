@@ -31,8 +31,11 @@ for(let i = 0; i < qtt; i++) {
 let cardContent = ""
 let card1 = ""
 let card2 = ""
+let fails = 0
+let correct = 0
 
 function unturn(card) {
+    fails += 1
     cardContent = ""
     card.classList.remove('turn')
     adjacent.classList.remove('turned')
@@ -53,6 +56,10 @@ function turn(card) {
     } else {
         if (adjacent.innerHTML == cardContent) {
             cardContent = ""
+            correct += 1
+            if (correct == qtt/2) {
+                alert(`Você ganhou em ${(fails + correct) * 2} rodadas!`)
+            }
         } else {
             setTimeout(unturn, 1000, card)
         }
