@@ -32,10 +32,37 @@ h1 {
 div span {
     width: 160px;
     height: 240px;
+    position: relative;
+    margin-right: 34px;
+    margin-bottom: 34px; 
+}
+
+span div {
+    width: 100%;
+    height: 100%;
+    position: absolute;
     background-color: #a7e9af;
     border: 3px solid #99cea8;
     border-radius: 5px;
-    display: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
+    transition: all .5s;
+    transform-style: preserve-3d;
+}
+
+.unturned /*VERSO*/ {
+    transform: rotateY(180deg); 
+    background-color: aqua;
+}
+
+.turn {
+    transform: rotateY(180deg); 
+}
+
+.turned {
+    transform: rotateY(0deg);
 }
 
 img {
@@ -43,10 +70,3 @@ img {
     height: 100px;
 }
 
-.unhidden {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 34px;
-    margin-bottom: 34px; 
-}
