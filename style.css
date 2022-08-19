@@ -52,13 +52,12 @@ span div {
     transform-style: preserve-3d;
 }
 
-.unturned /*VERSO*/ {
+.unturned {
     transform: rotateY(180deg); 
-    background-color: aqua;
 }
 
 .turn {
-    transform: rotateY(180deg); 
+    transform: rotateY(-180deg); 
 }
 
 .turned {
@@ -69,4 +68,3 @@ img {
     width: 100px;
     height: 100px;
 }
-

@@ -5,12 +5,13 @@ while (qtt < 4 || qtt > 14 || qtt % 2 !== 0) {
 }
 
 
-const parrots = ['bobrossparrot.gif', 'explodyparrot.gif', 'fiestaparrot.gif', 'metalparrot.gif', 'revertitparrot.gif', 'tripletsparrot.gif', 'unicornparrot.gif'] 
+const parrots = ['bobrossparrot.gif', 'explodyparrot.gif', 'fiestaparrot.gif', 'metalparrot.gif', 'revertitparrot.gif', 'tripletsparrot.gif',
+ 'unicornparrot.gif'] 
 
-function comparador() { 
+function comparator() { 
 	return Math.random() - 0.5; 
 }
-parrots.sort(comparador)
+parrots.sort(comparator)
 
 
 let game = []
@@ -18,7 +19,7 @@ for(let i = 0; i < qtt/2; i++) {
     game.push(parrots[i], parrots[i])
 }
 
-game.sort(comparador)
+game.sort(comparator)
 
 const parrotList = document.querySelector(".cards")
 for(let i = 0; i < qtt; i++) {
@@ -27,11 +28,33 @@ for(let i = 0; i < qtt; i++) {
     `
 }
 
-function turn(isso) {
-    console.log(isso)
-    isso.classList.add('turn')
+let cardContent = ""
+let card1 = ""
+let card2 = ""
 
-    adjacent = isso.nextElementSibling
-    console.log(adjacent)
+function unturn(card) {
+    cardContent = ""
+    card.classList.remove('turn')
+    adjacent.classList.remove('turned')
+
+    card1.classList.remove('turned')
+    card1Verse.classList.remove('turn')
+}
+
+function turn(card) {
+    card.classList.add('turn')
+    adjacent = card.nextElementSibling
     adjacent.classList.add('turned')
+
+    if (cardContent === "") {
+        cardContent = adjacent.innerHTML
+        card1 = adjacent
+        card1Verse = card
+    } else {
+        if (adjacent.innerHTML == cardContent) {
+            cardContent = ""
+        } else {
+            setTimeout(unturn, 1000, card)
+        }
+    }
 }
