@@ -4,7 +4,6 @@ while (qtt < 4 || qtt > 14 || qtt % 2 !== 0) {
     qtt = prompt('Com quantas cartas você deseja jogar? (4-14 apenas par)')  
 }
 
-
 const parrots = ['bobrossparrot.gif', 'explodyparrot.gif', 'fiestaparrot.gif', 'metalparrot.gif', 'revertitparrot.gif', 'tripletsparrot.gif',
  'unicornparrot.gif'] 
 
@@ -33,6 +32,7 @@ let card1 = ""
 let card2 = ""
 let fails = 0
 let correct = 0
+const antiClick = document.querySelector('.box')
 
 function unturn(card) {
     fails += 1
@@ -42,6 +42,8 @@ function unturn(card) {
 
     card1.classList.remove('turned')
     card1Verse.classList.remove('turn')
+
+    antiClick.classList.add('hidden')
 }
 
 function turn(card) {
@@ -61,6 +63,7 @@ function turn(card) {
                 alert(`Você ganhou em ${(fails + correct) * 2} rodadas!`)
             }
         } else {
+            antiClick.classList.remove('hidden')
             setTimeout(unturn, 1000, card)
         }
     }
